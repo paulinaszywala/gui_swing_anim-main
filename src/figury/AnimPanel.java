@@ -1,9 +1,6 @@
 package figury;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.RenderingHints;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,7 +24,7 @@ public class AnimPanel extends JPanel implements ActionListener {
 
 	private Timer timer;
 
-	private static int numer = 0;
+	private static int numer = 1;
 
 	public AnimPanel() {
 		super();
@@ -47,8 +44,10 @@ public class AnimPanel extends JPanel implements ActionListener {
 	}
 
 	void addFig() {
-		Figura fig = (numer++ % 2 == 0) ? new Kwadrat(buffer, delay, getWidth(), getHeight())
-				: new Elipsa(buffer, delay, getWidth(), getHeight());
+
+		Figura fig = ((numer++ % 3 == 0) ? new Kwadrat(buffer, delay, getWidth(), getHeight())
+				: ((numer++ % 5 == 0) ? new Elipsa(buffer, delay, getWidth(), getHeight()) :  new Trójkąt(buffer, delay, getWidth(), getHeight())));
+
 		timer.addActionListener(fig);
 		new Thread(fig).start();
 	}
@@ -59,6 +58,15 @@ public class AnimPanel extends JPanel implements ActionListener {
 		} else {
 			timer.start();
 		}
+	}
+	void setBgColor(){
+		this.setOpaque(true);
+		this.setBackground(Color.BLUE);
+	}
+
+	void getNumer()
+	{
+		System.out.println(numer);
 	}
 
 	@Override

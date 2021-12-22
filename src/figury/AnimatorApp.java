@@ -66,12 +66,15 @@ public class AnimatorApp extends JFrame {
 		JButton btnAnimate = new JButton("Animate");
 		btnAnimate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				contentPane.setBackground(Color.PINK);
+				kanwa.setBackground(Color.PINK);
 				kanwa.animate();
 			}
 		});
 		btnAnimate.setBounds(100, 239, 80, 23);
+		btnAnimate.setMaximumSize(new Dimension(300,100));
 		contentPane.add(btnAnimate);
-		
+
 	}
 
 }

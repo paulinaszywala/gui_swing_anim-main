@@ -27,7 +27,7 @@ public class AnimPanel extends JPanel implements ActionListener {
 
 	private Timer timer;
 
-	private static int numer = 0;
+	private static int numer = 1;
 
 	public AnimPanel() {
 		super();
@@ -47,8 +47,10 @@ public class AnimPanel extends JPanel implements ActionListener {
 	}
 
 	void addFig() {
-		Figura fig = (numer++ % 2 == 0) ? new Kwadrat(buffer, delay, getWidth(), getHeight())
-				: new Elipsa(buffer, delay, getWidth(), getHeight());
+
+		Figura fig = ((numer++ % 3 == 0) ? new Kwadrat(buffer, delay, getWidth(), getHeight())
+				: ((numer++ % 5 == 0) ? new Elipsa(buffer, delay, getWidth(), getHeight()) :  new Trójkąt(buffer, delay, getWidth(), getHeight())));
+
 		timer.addActionListener(fig);
 		new Thread(fig).start();
 	}

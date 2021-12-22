@@ -1,9 +1,6 @@
 package figury;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.RenderingHints;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -61,6 +58,15 @@ public class AnimPanel extends JPanel implements ActionListener {
 		} else {
 			timer.start();
 		}
+	}
+	void setBgColor(){
+		this.setOpaque(true);
+		this.setBackground(Color.BLUE);
+	}
+
+	void getNumer()
+	{
+		System.out.println(numer);
 	}
 
 	@Override
